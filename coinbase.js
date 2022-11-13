@@ -62,3 +62,14 @@ Bids should be ordered from highest price to lowest price.
 Asks should be ordered from lowest price to highest price.
 The example shows the result from input baseCurrency as “ETH” and quoteCurrency as “BTC”
 */
+
+
+const getOrderBook = async (baseCurrency, quoteCurrency) => {
+    const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/book`;
+    const response = await axios.get(url);
+    const { data } = response;
+    return {
+        bids: data.bids,
+        asks: data.asks,
+    };
+};
