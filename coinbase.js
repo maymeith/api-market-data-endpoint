@@ -10,10 +10,12 @@ const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
     return data.map(item => ({
         base_currency: baseCurrency,
         quote_currency: quoteCurrency,
-        base_volume: undefined,
-        quote_volume: undefined,
+        base_volume: item.price,
+        quote_volume: item.price * item.size,
         side: item.side,
         time: item.time,  
+        
+        
     }));
 };
 
@@ -33,10 +35,15 @@ const getExchangeVolume = async (baseCurrency, quoteCurrency) => {
 
 const getLastRate = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.exchange.coinbase.com/products/${baseCurrency}-${quoteCurrency}/ticker`;
-    const response = await axios.get(url);
-    const { data } = response;
+    await axios.get(url)
+        .then((response)=> {
+            console.log(response.data.price);
+            return response.data.price;
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
     
-    return data.price;
 };
 
 const getOrderBook = async (baseCurrency, quoteCurrency) => {
@@ -49,5 +56,4 @@ const getOrderBook = async (baseCurrency, quoteCurrency) => {
         asks: data.asks,
     };
 };
-
 

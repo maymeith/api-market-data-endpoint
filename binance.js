@@ -26,6 +26,9 @@ const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
 
 };
 
+getExchangeTrades('ETH','BTC').then((result)=>{ console.log(result)});
+
+
 /*
 Create a “getExchangeVolume” function to retrieve the last 24hr volume data of specific
 trading pairs. The function should have input parameter “baseCurrency” and
