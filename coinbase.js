@@ -10,18 +10,24 @@ The example shows the result from input baseCurrency in as “ETH” and quoteCu
 “BTC”
 */
 const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
-    const url = `https://api.exchange.coinbase.com/products/${baseCurrency}-${quoteCurrency}/trades`;
+    const url = `https://api.exchange.coinbase.com/products/${baseCurrency}-${quoteCurrency}/trades?limit=1`;
     const response = await axios.get(url);
     const { data } = response;
    
     return data.map(item => ({
+        base_currency: baseCurrency,
+        quote_currency: quoteCurrency,
+        base_volume: undefined,
+        quote_volume: undefined,
+        side: item.side,
         time: item.time,
+        size: item.size,
         trade_id: item.trade_id,
         price: item.price,
-        size: item.size,
-        side: item.side,
+        
     }));
 };
+
 /*
 Create a “getExchangeVolume” function to retrieve the last 24hr volume data of specific
 trading pairs. The function should have input parameter “baseCurrency” and
