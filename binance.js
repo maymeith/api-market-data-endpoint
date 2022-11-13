@@ -1,15 +1,6 @@
 // this will be where all the funtion would be
 const axios = require('axios');
 
-/*
-Create a “getExchangeTrades” function to retrieve the latest exchange trades of specific
-trading pairs. The function should have input parameter “baseCurrency” and
-“quoteCurrency” and return output format as the example object;
-The baseCurrency and QuoteCurrency input can be capital or lowercase but the output result
-the format should always show base_currency and quote_currency in capital letters.
-The example shows the result from input baseCurrency in as “ETH” and quoteCurrency as
-“BTC”
-*/
 const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.binance.com/api/v3/trades?limit=1&symbol=${baseCurrency}${quoteCurrency}`;
     const response = await axios.get(url);
