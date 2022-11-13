@@ -47,7 +47,12 @@ function should have input parameters “base currency” and “quoteCurrency�
 output as a number;
 The example shows the result from input baseCurrency as “ETH” and quoteCurrency as “BTC”
 */
-
+const getLastRate = async (baseCurrency, quoteCurrency) => {
+    const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/ticker`;
+    const response = await axios.get(url);
+    const { data } = response;
+    return data.price;
+};
 
 /*
 Create a “getOrderBook” function to retrieve the last 24hr volume data of specific trading
