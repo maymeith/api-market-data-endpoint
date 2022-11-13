@@ -1,0 +1,11 @@
+{
+  "name": "api-market-data-endpoint",
+  "version": "1.0.0",
+  "description": "junior developer test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maymeith",
+  "license": "ISC"
+}
