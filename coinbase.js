@@ -13,6 +13,7 @@ const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.exchange.coinbase.com/products/${baseCurrency}-${quoteCurrency}/trades`;
     const response = await axios.get(url);
     const { data } = response;
+   
     return data.map(item => ({
         time: item.time,
         trade_id: item.trade_id,
@@ -33,6 +34,7 @@ const getExchangeVolume = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/stats`;
     const response = await axios.get(url);
     const { data } = response;
+    
     return {
         volume: data.volume,
         open: data.open,
@@ -51,6 +53,7 @@ const getLastRate = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/ticker`;
     const response = await axios.get(url);
     const { data } = response;
+    
     return data.price;
 };
 
@@ -68,6 +71,7 @@ const getOrderBook = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/book`;
     const response = await axios.get(url);
     const { data } = response;
+    
     return {
         bids: data.bids,
         asks: data.asks,
