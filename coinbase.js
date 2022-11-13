@@ -29,6 +29,17 @@ The baseCurrency and QuoteCurrency input can be capital or lowercase but the out
 the format should always show base_currency and quote_currency in capital letters.
 The example shows the result from input baseCurrency as “ETH” and quoteCurrency as “BTC”
 */
+const getExchangeVolume = async (baseCurrency, quoteCurrency) => {
+    const url = `https://api.pro.coinbase.com/products/${baseCurrency}-${quoteCurrency}/stats`;
+    const response = await axios.get(url);
+    const { data } = response;
+    return {
+        volume: data.volume,
+        open: data.open,
+        high: data.high,
+        low: data.low,
+    };
+};
 
 /*
 Create a “getLastRate” function to retrieve the last rate data of specific trading pairs. The
