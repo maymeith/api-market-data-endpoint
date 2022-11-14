@@ -15,7 +15,7 @@ there will be more requirement to integrate with other exchages, how would you d
 it? You could just write the idea o README file.**
 
 ## Installation
-
+use axios for fetch data
 ```bash
 npm install axios
 ```
