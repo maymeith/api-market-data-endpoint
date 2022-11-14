@@ -54,3 +54,11 @@ const getOrderBook = async (baseCurrency, quoteCurrency) => {
         asks: addPropertyNameAsks,
     };
 };
+
+
+module.exports = {  
+    getExchangeTrades,
+    getExchangeVolume,
+    getLastRate,
+    getOrderBook,
+    };
