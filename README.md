@@ -9,7 +9,7 @@ Answer:** Public Endpoints We throttle public endpoints by IP: 10 requests per s
 Answer:** https://api.exchange.coinbase.com
 
 3. **What is the difference between public and private endpoints?  
-Answer:** Private endpoints Need API Key to access (DO POST/GET mainly it because of security matter ).  Publice Endpoint doesn't require API KEY (mostly perfrom GET action)   Private endpoints are available for order management and account management. Every private request must be signed using the described authentication scheme. Private endpoints require authentication using your Coinbase Exchange API key. 
+Answer:** Private endpoints Need API Key to access (DO POST/GET mainly it because of security matter ).  Public Endpoint doesn't require API KEY (mostly perfrom GET action)   Private endpoints are available for order management and account management. Every private request must be signed using the described authentication scheme. Private endpoints require authentication using your Coinbase Exchange API key. 
 4. **What if your team lead ask you to turn this code to library for another NodeJS project as
 there will be more requirement to integrate with other exchages, how would you design
 it? You could just write the idea o README file.**
