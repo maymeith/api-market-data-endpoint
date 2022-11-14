@@ -73,7 +73,6 @@ coinbase.getOrderBook('eth','BTC').then(console.log);
     ... 2673 more items
     ]
 ```
-
 ## Contributing
 [Conventional Commits](https://www.conventionalcommits.org)
 

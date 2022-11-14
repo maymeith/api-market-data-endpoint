@@ -55,7 +55,6 @@ const getOrderBook = async (baseCurrency, quoteCurrency) => {
     };
 };
 
-
 module.exports = {  
     getExchangeTrades,
     getExchangeVolume,
