@@ -72,6 +72,7 @@ coinbase.getOrderBook('eth','BTC').then(console.log);
     { price: '0.07454', quantity: '6.48495309' },
     ... 2673 more items
     ]
+    */
 ```
 ## Reference
 [Conventional Commits](https://www.conventionalcommits.org)
