@@ -2,19 +2,52 @@
 const axios = require('axios');
 
 const getExchangeTrades = async (baseCurrency, quoteCurrency) => {
-    const url = `https://api.exchange.coinbase.com/products/${baseCurrency.toUpperCase()}-${quoteCurrency.toUpperCase()}/trades?limit=1`;
-    const response = await axios.get(url);
-    const { data } = response;
+
+    const options = {
+      method: 'GET',
+      url :`https://api.exchange.coinbase.com/products/BTCUSD`,
+      headers: {accept: 'application/json'}
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+      
     
-    return data.map(item => ({
-        base_currency: baseCurrency.toUpperCase(),
-        quote_currency: quoteCurrency.toUpperCase(),
-        base_volume: item.size,
-        quote_volume: item.size * item.price,
-        side: item.side,
-        time: item.time,  
-    }));
 };
+
+
+const options = {
+  method: 'GET',
+  url: 'https://api.exchange.coinbase.com/products/ETH-BTC',
+  headers: {accept: 'application/json'}
+};
+
+axios
+  .request(options)
+  .then(function (response) {
+    console.log('fdsfdsfsd')
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
+// return data.map(item => ({
+//         base_currency: baseCurrency.toUpperCase(),
+//         quote_currency: quoteCurrency.toUpperCase(),
+//         base_volume: item.size,
+//         quote_volume: item.size * item.price,
+//         side: item.side,
+//         time: item.time,  
+//     }));
+
+
 
 const getExchangeVolume = async (baseCurrency, quoteCurrency) => {
     const url = `https://api.exchange.coinbase.com/products/${baseCurrency.toUpperCase()}-${quoteCurrency.toUpperCase()}/stats`;
